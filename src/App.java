@@ -52,6 +52,16 @@ public class App {
         }
         return valor;
     }
+
+    static void pilhaMatricula(){
+        Integer[] matricula = {8, 9, 5, 4, 5, 3};
+        Pilha pilhaMatricula = new Pilha<Integer>();
+        for(int i = 0; i < matricula.length; i++){
+            pilhaMatricula.empilhar(matricula[i]);
+        }
+
+        pilhaMatricula.imprimir();
+    }
     
     /** Imprime o menu principal, lê a opção do usuário e a retorna (int).
      * @return Um inteiro com a opção do usuário.
