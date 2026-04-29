@@ -21,7 +21,9 @@ public class App {
 
     /** Pilha de pedidos */
     static Pilha<Pedido> pilhaPedidos = new Pilha<>();
-        
+
+    static Pilha<Produto> pilhaProdutosRecentes = new Pilha<>();
+
     static void limparTela() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
@@ -219,13 +221,14 @@ public class App {
      * @param pedido O pedido que deve ser finalizado.
      */
     public static void finalizarPedido(Pedido pedido) {
-    	
-    	// TODO
+        pilhaPedidos.empilhar(pedido);
+        for(ItemDePedido item : pedido.getItensDoPedido()){
+            pilhaProdutosRecentes.empilhar(item.getProduto());
+        }
     }
     
     public static void listarProdutosPedidosRecentes() {
-    	
-    	// TODO
+        pilhaProdutosRecentes.imprimir();
     }
     
 	public static void main(String[] args) {
