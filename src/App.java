@@ -65,6 +65,19 @@ public class App {
         pilhaMatricula.imprimir();
     }
     
+    static int contarCaracteresNome(char c){
+        int count = 0;
+        c = Character.toUpperCase(c);
+        Fila<Character> filaNome = new Fila<>();
+        char[] nome = {'C', 'A', 'I', 'O', 'C', 'E', 'S', 'A', 'R'};
+            for(char letra : nome){
+                filaNome.enfileirar(letra);
+                if(c == letra)
+                    count ++;
+            }
+        return count;
+    }
+    
     /** Imprime o menu principal, lê a opção do usuário e a retorna (int).
      * @return Um inteiro com a opção do usuário.
      */
@@ -230,6 +243,8 @@ public class App {
     public static void listarProdutosPedidosRecentes() {
         pilhaProdutosRecentes.imprimir();
     }
+
+    
     
 	public static void main(String[] args) {
 		
