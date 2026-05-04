@@ -67,4 +67,15 @@ public class Fila<E> {
 			}
 		} 	
 	}
+
+	public Fila<E> extrairLote(int numItens){
+		Fila<E> novaFila = new Fila<>();
+			for(int i = 0; i < numItens; i++){
+				if(!this.vazia())
+					novaFila.enfileirar(this.desenfileirar());
+				else
+					break;
+			}
+			return novaFila;
+		}
 }
