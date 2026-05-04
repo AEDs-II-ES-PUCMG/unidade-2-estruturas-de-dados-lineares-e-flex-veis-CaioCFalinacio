@@ -24,6 +24,8 @@ public class App {
 
     static Pilha<Produto> pilhaProdutosRecentes = new Pilha<>();
 
+    static Fila<Pedido> filaPedidos = new Fila<>();
+
     static void limparTela() {
         System.out.print("\033[H\033[2J");
         System.out.flush();
@@ -235,6 +237,8 @@ public class App {
      */
     public static void finalizarPedido(Pedido pedido) {
         pilhaPedidos.empilhar(pedido);
+        filaPedidos.enfileirar(pedido);
+
         for(ItemDePedido item : pedido.getItensDoPedido()){
             pilhaProdutosRecentes.empilhar(item.getProduto());
         }
@@ -242,9 +246,7 @@ public class App {
     
     public static void listarProdutosPedidosRecentes() {
         pilhaProdutosRecentes.imprimir();
-    }
-
-    
+    }    
     
 	public static void main(String[] args) {
 		
